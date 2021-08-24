@@ -64,12 +64,11 @@ class TestActivity : ComponentActivity() {
             group.forEach { gr ->
                 stickyHeader {
                     Text(
-                        text = gr.key.toString(),
-                        modifier =
+                        text = gr.key.toString(), modifier =
                         Modifier
                             .fillMaxWidth()
                             .background(Color.Black)
-                            .padding(100.dp),
+                            .padding(10.dp),
                         color = Color.Magenta
                     )
                 }
