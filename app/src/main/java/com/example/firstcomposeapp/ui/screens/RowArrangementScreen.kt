@@ -84,7 +84,7 @@ object EqualWeight : RowArrangement {
 @Composable
 fun LetterBoxRow() {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(5.dp),
     ) {
         listOf(
