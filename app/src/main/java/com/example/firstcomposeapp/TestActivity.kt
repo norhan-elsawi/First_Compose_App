@@ -11,6 +11,8 @@ import com.example.firstcomposeapp.ui.screens.ConstraintLayoutScreen
 import com.example.firstcomposeapp.ui.screens.DecoupledConstraintScreen
 import com.example.firstcomposeapp.ui.screens.RowArrangementScreen
 import com.example.firstcomposeapp.ui.screens.TestScreen
+import com.example.firstcomposeapp.ui.screens.images.ImagesScreen
+import com.example.firstcomposeapp.ui.screens.images.RememberScreen
 import com.example.firstcomposeapp.ui.theme.FirstComposeAppTheme
 
 class TestActivity : ComponentActivity() {
@@ -26,7 +28,7 @@ class TestActivity : ComponentActivity() {
     fun ComposeApp() {
         FirstComposeAppTheme {
             val navController = rememberNavController()
-            NavHost(navController, startDestination = "row_arrangement") {
+            NavHost(navController, startDestination = "remember_screen") {
                 composable(route = "row_arrangement") {
                     RowArrangementScreen(navController)
                 }
@@ -39,6 +41,16 @@ class TestActivity : ComponentActivity() {
                 composable(route = "decoupled_constraint") {
                     DecoupledConstraintScreen()
                 }
+
+                composable(route = "images_screen") {
+                    ImagesScreen()
+                }
+
+                composable(route = "remember_screen") {
+                    RememberScreen()
+                }
+
+
             }
         }
     }
