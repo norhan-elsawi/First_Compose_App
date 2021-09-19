@@ -94,7 +94,7 @@ fun UserList(group: Map<Char, List<User>>, loading: Boolean, onLoadMoreClicked: 
 @Preview(showBackground = true)
 @Composable
 fun UserItem(
-    user: User = User()
+    user: User = User(),
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Surface(
