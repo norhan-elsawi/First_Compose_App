@@ -11,6 +11,7 @@ import com.example.firstcomposeapp.ui.screens.ConstraintLayoutScreen
 import com.example.firstcomposeapp.ui.screens.DecoupledConstraintScreen
 import com.example.firstcomposeapp.ui.screens.RowArrangementScreen
 import com.example.firstcomposeapp.ui.screens.TestScreen
+import com.example.firstcomposeapp.ui.screens.compositionlocal.CompositionLocalScreen
 import com.example.firstcomposeapp.ui.screens.form.FormValidationScreen
 import com.example.firstcomposeapp.ui.screens.images.ImagesScreen
 import com.example.firstcomposeapp.ui.screens.images.RememberScreen
@@ -30,7 +31,7 @@ class TestActivity : ComponentActivity() {
     fun ComposeApp() {
         FirstComposeAppTheme {
             val navController = rememberNavController()
-            NavHost(navController, startDestination = "employee_screen") {
+            NavHost(navController, startDestination = "composition_local") {
 
                 composable(route = "row_arrangement") {
                     RowArrangementScreen(navController)
@@ -55,6 +56,10 @@ class TestActivity : ComponentActivity() {
 
                 composable(route = "form") {
                     FormValidationScreen()
+                }
+
+                composable(route = "composition_local") {
+                    CompositionLocalScreen()
                 }
 
                 composable(route = "employee_screen") {
