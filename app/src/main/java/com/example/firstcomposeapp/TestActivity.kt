@@ -31,7 +31,7 @@ class TestActivity : ComponentActivity() {
     fun ComposeApp() {
         FirstComposeAppTheme {
             val navController = rememberNavController()
-            NavHost(navController, startDestination = "composition_local") {
+            NavHost(navController, startDestination = "employee_screen") {
 
                 composable(route = "row_arrangement") {
                     RowArrangementScreen(navController)

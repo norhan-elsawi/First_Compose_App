@@ -43,6 +43,7 @@ import kotlinx.coroutines.launch
 fun EmployeeListScreen() {
     val vm: EmployeeViewModel = viewModel()
     val listState = rememberLazyListState()
+    //listState.firstVisibleItemIndex
     Box(modifier = Modifier
         .fillMaxWidth()
         .fillMaxHeight()) {

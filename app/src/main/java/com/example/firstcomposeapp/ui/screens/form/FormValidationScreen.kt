@@ -8,6 +8,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -44,7 +45,10 @@ fun FormValidationScreen() {
         emailText = emailState ?: "",
         onEmailChanged = { vm.emailAddress.postValue(it) },
         phoneText = phoneState ?: "",
-        onPhoneChange = { if (it.length <= 9) vm.phone.postValue(it) },
+        onPhoneChange = {
+            Log.d("Value", it)
+            if (it.length <= 9) vm.phone.postValue(it)
+        },
         isFormValid = isFormValid ?: false // Passing in the value to the composable
     )
 }
@@ -76,6 +80,37 @@ fun MyCoolForm(
 }
 
 @Composable
+fun Title() {
+    val circularFontFamily = FontFamily(
+        Font(R.font.alexbrush, FontWeight.Normal),
+    )
+    Text(
+        //"please fill the form"
+        getAnnotatedString(),
+        fontSize = 25.sp,
+        fontStyle = FontStyle.Italic,
+        fontFamily = circularFontFamily,
+        fontWeight = FontWeight.Normal,
+        textAlign = TextAlign.Center,
+        modifier = Modifier.width(100.dp),
+        maxLines = 2,
+        overflow = TextOverflow.Ellipsis
+    )
+}
+
+private fun getAnnotatedString() = buildAnnotatedString {
+    withStyle(style = SpanStyle(color = Color.Blue)) {
+        append("Please")
+    }
+    append(" fill ")
+
+    withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Red)) {
+        append("T")
+    }
+    append("he Form")
+}
+
+@Composable
 fun AnnotatedClickableText() {
     val annotatedText = buildAnnotatedString {
         append("Must agree On ")
@@ -89,6 +124,7 @@ fun AnnotatedClickableText() {
             append("Terms and Conditions")
         }
         pop()
+        // append("987398789378934")
     }
 
     ClickableText(
@@ -107,41 +143,14 @@ fun AnnotatedClickableText() {
 }
 
 @Composable
-fun Title() {
-    val circularFontFamily = FontFamily(
-        Font(R.font.alexbrush, FontWeight.Normal),
-    )
-    Text(
-        buildAnnotatedString {
-            withStyle(style = SpanStyle(color = Color.Blue)) {
-                append("Please")
-            }
-            append(" fill ")
-
-            withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Red)) {
-                append("T")
-            }
-            append("he Form")
-        },
-        fontSize = 25.sp,
-        fontStyle = FontStyle.Italic,
-        fontFamily = circularFontFamily,
-        fontWeight = FontWeight.Normal,
-        textAlign = TextAlign.Center,
-        modifier = Modifier.width(100.dp),
-        maxLines = 2,
-        overflow = TextOverflow.Ellipsis
-    )
-}
-
-@Composable
 fun Email(
     emailText: String = "",
     onEmailChanged: (String) -> Unit = {},
 ) {
-    OutlinedTextField(
+    //outlined
+    TextField(
         value = emailText,
-        label = { Text(text = "Email") },
+        //  label = { Text(text = "Email") },
         onValueChange = onEmailChanged,
         modifier = Modifier.fillMaxWidth(),
         textStyle = TextStyle(
@@ -164,7 +173,7 @@ fun Phone(
         textStyle = TextStyle(
             color = Color.Blue,
             fontWeight = FontWeight.Bold),
-        //visualTransformation = PhoneVisualTransformation(),
+        //   visualTransformation = PhoneVisualTransformation(),
         visualTransformation = PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
