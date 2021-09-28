@@ -12,6 +12,7 @@ import com.example.firstcomposeapp.ui.screens.DecoupledConstraintScreen
 import com.example.firstcomposeapp.ui.screens.RowArrangementScreen
 import com.example.firstcomposeapp.ui.screens.TestScreen
 import com.example.firstcomposeapp.ui.screens.compositionlocal.CompositionLocalScreen
+import com.example.firstcomposeapp.ui.screens.custom_layout.BodyContent
 import com.example.firstcomposeapp.ui.screens.form.FormValidationScreen
 import com.example.firstcomposeapp.ui.screens.images.ImagesScreen
 import com.example.firstcomposeapp.ui.screens.images.RememberScreen
@@ -23,7 +24,8 @@ class TestActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposeApp()
+            //ComposeApp()
+            BodyContent()
         }
     }
 
