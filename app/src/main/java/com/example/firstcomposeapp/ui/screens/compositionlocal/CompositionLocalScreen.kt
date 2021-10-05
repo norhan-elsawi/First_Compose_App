@@ -55,6 +55,6 @@ fun DescendantExample() {
     // CompositionLocalProviders also work across composable functions
     Text("This Text uses the disabled alpha now")
 //    LocalContext.current
-//    LocalConfiguration.current
-//    LocalLifecycleOwner
+//   LocalConfiguration.current
+//   LocalLifecycleOwner.current
 }

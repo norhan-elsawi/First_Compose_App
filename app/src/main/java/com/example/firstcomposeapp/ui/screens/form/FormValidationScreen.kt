@@ -8,7 +8,6 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.Button
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -24,7 +23,6 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
@@ -85,7 +83,7 @@ fun Title() {
         Font(R.font.alexbrush, FontWeight.Normal),
     )
     Text(
-        //"please fill the form"
+        //"please fill the form hskjahsfkjsfhak aksjfhksfh ksjfhkjhfsjk ksjfhkjsfh",
         getAnnotatedString(),
         fontSize = 25.sp,
         fontStyle = FontStyle.Italic,
@@ -124,7 +122,7 @@ fun AnnotatedClickableText() {
             append("Terms and Conditions")
         }
         pop()
-        // append("987398789378934")
+        append("987398789378934")
     }
 
     ClickableText(
@@ -148,9 +146,9 @@ fun Email(
     onEmailChanged: (String) -> Unit = {},
 ) {
     //outlined
-    TextField(
+    OutlinedTextField(
         value = emailText,
-        //  label = { Text(text = "Email") },
+        label = { Text(text = "Email") },
         onValueChange = onEmailChanged,
         modifier = Modifier.fillMaxWidth(),
         textStyle = TextStyle(
@@ -173,8 +171,8 @@ fun Phone(
         textStyle = TextStyle(
             color = Color.Blue,
             fontWeight = FontWeight.Bold),
-        //   visualTransformation = PhoneVisualTransformation(),
-        visualTransformation = PasswordVisualTransformation(),
+        visualTransformation = PhoneVisualTransformation(),
+        //visualTransformation = PasswordVisualTransformation(),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
 }
