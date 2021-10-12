@@ -3,6 +3,7 @@ package com.example.firstcomposeapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -18,9 +19,15 @@ import com.example.firstcomposeapp.ui.screens.gestures.GesturesScreen
 import com.example.firstcomposeapp.ui.screens.images.ImagesScreen
 import com.example.firstcomposeapp.ui.screens.images.RememberScreen
 import com.example.firstcomposeapp.ui.screens.paging.EmployeeListScreen
+import com.example.firstcomposeapp.ui.screens.usersScreen.UsersScreen
+import com.example.firstcomposeapp.ui.screens.usersScreen.UsersViewModel
 import com.example.firstcomposeapp.ui.theme.FirstComposeAppTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TestActivity : ComponentActivity() {
+
+    private val usersViewModel: UsersViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +40,11 @@ class TestActivity : ComponentActivity() {
     fun ComposeApp() {
         FirstComposeAppTheme {
             val navController = rememberNavController()
-            NavHost(navController, startDestination = "gestures_screen") {
+            NavHost(navController, startDestination = "users_screen") {
+
+                composable(route = "users_screen") {
+                    UsersScreen(usersViewModel)
+                }
 
                 composable(route = "row_arrangement") {
                     RowArrangementScreen(navController)
