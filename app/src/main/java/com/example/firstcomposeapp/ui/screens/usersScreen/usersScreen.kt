@@ -49,9 +49,9 @@ import com.example.firstcomposeapp.utils.showToast
 
 @Composable
 fun UsersScreen(vm: UsersViewModel) {
-        Column {
-            UsersList(vm)
-        }
+    Column {
+        UsersList(vm)
+    }
 }
 
 
@@ -100,13 +100,9 @@ fun AppBar(
 
 @Composable
 fun UsersList(vm: UsersViewModel = viewModel()) {
-    var query  by remember {
-        mutableStateOf(false)
-    }
 
-    val (result, reCall, clearError) = produceUiState(producer = vm,query) {
-        if (query)
-        getUsersResult(query)
+    val (result, reCall, clearError) = produceUiState(producer = vm) {
+        getUsersResult()
     }
 
     val isLoading = result.value.loading
